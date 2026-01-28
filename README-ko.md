@@ -187,7 +187,11 @@ npm run dashboard:web
 .
 ├── .agent/
 │   ├── workflows/
-│   │   └── coordinate.md           # /coordinate 명령어 (멀티 에이전트 조율)
+│   │   ├── coordinate.md           # /coordinate (UI 기반 멀티 에이전트 조율)
+│   │   ├── orchestrate.md          # /orchestrate (CLI 자동 병렬 실행)
+│   │   ├── plan.md                 # /plan (PM 태스크 분해)
+│   │   ├── review.md               # /review (전체 QA 파이프라인)
+│   │   └── debug.md                # /debug (구조화된 버그 수정)
 │   └── skills/
 │       ├── _shared/                    # 공통 리소스 (스킬 아님)
 │       │   ├── serena-memory-protocol.md

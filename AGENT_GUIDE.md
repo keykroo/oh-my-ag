@@ -70,7 +70,7 @@ if [ -d ".agent/workflows" ] && [ "$(ls -A .agent/workflows 2>/dev/null)" ]; the
   echo "⚠️  workflows/ already has files. Keeping existing."
 else
   cp -r "$REPO/.agent/workflows/"* ".agent/workflows/"
-  echo "✅ Copied workflows (/coordinate)"
+  echo "✅ Copied workflows (/coordinate, /orchestrate, /plan, /review, /debug)"
 fi
 
 # Copy shared resources first (required by all skills)
@@ -331,7 +331,7 @@ git check-ignore .agent/skills/backend-agent/SKILL.md  # should be blank
 
 Integration is complete when:
 
-- ✅ `.agent/workflows/coordinate.md` exists (for `/coordinate` command)
+- ✅ `.agent/workflows/` contains 5 workflows (coordinate, orchestrate, plan, review, debug)
 - ✅ `_shared/` common resources exist in `.agent/skills/_shared/`
 - ✅ All 8 skills exist in `.agent/skills/`
 - ✅ Each skill has `SKILL.md` and `resources/` directory

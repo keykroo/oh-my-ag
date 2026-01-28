@@ -187,7 +187,11 @@ Features:
 .
 ├── .agent/
 │   ├── workflows/
-│   │   └── coordinate.md           # /coordinate command (multi-agent orchestration)
+│   │   ├── coordinate.md           # /coordinate (multi-agent orchestration via UI)
+│   │   ├── orchestrate.md          # /orchestrate (automated CLI parallel execution)
+│   │   ├── plan.md                 # /plan (PM task decomposition)
+│   │   ├── review.md               # /review (full QA pipeline)
+│   │   └── debug.md                # /debug (structured bug fixing)
 │   └── skills/
 │       ├── _shared/                    # Common resources (not a skill)
 │       │   ├── serena-memory-protocol.md

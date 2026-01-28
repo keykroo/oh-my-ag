@@ -173,6 +173,22 @@ Agents can work in separate directories to avoid conflicts:
 
 ---
 
+## Workflow Commands
+
+Type these in Antigravity IDE chat to trigger step-by-step workflows:
+
+| Command | Description |
+|---------|-------------|
+| `/coordinate` | Multi-agent orchestration via Agent Manager UI |
+| `/orchestrate` | Automated CLI-based parallel agent execution |
+| `/plan` | PM task decomposition with API contracts |
+| `/review` | Full QA pipeline (security, performance, accessibility, code quality) |
+| `/debug` | Structured bug fixing (reproduce → diagnose → fix → regression test) |
+
+These are separate from **skills** (which auto-activate). Workflows give you explicit control over multi-step processes.
+
+---
+
 ## Typical Workflows
 
 ### Workflow A: Single Skill
