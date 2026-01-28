@@ -214,6 +214,29 @@ Set workspace when spawning an agent in Agent Manager.
 
 ---
 
+### debug-agent
+**Auto-activates for**: Bug reports, error messages, crashes, unexpected behavior
+
+**What it does**:
+- Analyzes error messages and stack traces
+- Reproduces bugs systematically
+- Identifies root causes (not just symptoms)
+- Provides fixes with explanations
+- Writes regression tests
+- Documents bugs in Knowledge Base
+- Proactively finds similar patterns
+
+**Output**: Fixed code, regression tests, bug documentation
+
+**Handles**:
+- Frontend bugs (null errors, race conditions, memory leaks)
+- Backend bugs (SQL injection, N+1 queries, auth issues)
+- Mobile bugs (platform-specific, memory leaks)
+- Performance bugs (slow renders, large bundles)
+- Security bugs (XSS, CSRF, injection attacks)
+
+---
+
 ## Typical Workflows
 
 ### Workflow A: Single Skill (Simple Task)
@@ -266,6 +289,40 @@ Done: Complete, tested application
 
 **Time**: 30-60 minutes (depending on complexity)
 **Skills used**: 5 (workflow-guide, pm-agent, backend-agent, frontend-agent, qa-agent)
+
+---
+
+### Workflow C: Bug Fixing (Debug Agent)
+
+```
+You: "There's a bug - clicking login button shows 'Cannot read property map of undefined'"
+     ↓
+Antigravity: [Loads debug-agent]
+     ↓
+Debug Agent: "Let me investigate this error..."
+     ↓
+Debug Agent: [Analyzes TodoList.tsx, finds null check missing]
+     ↓
+Debug Agent: "Root cause: Component tries to map over 'todos' before data loads"
+     ↓
+Debug Agent: [Provides fix with loading/error/empty states]
+     ↓
+Debug Agent: [Writes regression test]
+     ↓
+Debug Agent: [Searches for similar patterns]
+     ↓
+Debug Agent: "Found 3 other components with same issue - fixed proactively"
+     ↓
+Done: Bug fixed, tested, documented
+```
+
+**Time**: 10-30 minutes
+**Skills used**: 1 (debug-agent)
+
+**Common scenarios**:
+- **Simple bugs**: TypeError, missing null checks → debug-agent fixes directly
+- **Complex bugs**: Multi-domain issues → debug-agent diagnoses, then workflow-guide coordinates fixes
+- **Security bugs**: Injection vulnerabilities → debug-agent identifies, qa-agent provides comprehensive audit
 
 ---
 

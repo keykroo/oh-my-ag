@@ -1,7 +1,7 @@
 {
   "name": "antigravity-multi-agent-skills",
   "version": "1.0.0",
-  "description": "Professional agent skills for Google Antigravity IDE - PM, Frontend, Backend, Mobile, and QA specialists that work together seamlessly",
+  "description": "Professional agent skills for Google Antigravity IDE - PM, Frontend, Backend, Mobile, QA, and Debug specialists that work together seamlessly",
   "keywords": [
     "antigravity",
     "skills",
@@ -12,6 +12,8 @@
     "backend",
     "mobile",
     "qa",
+    "debug",
+    "bug-fixing",
     "gemini"
   ],
   "author": "",
@@ -28,11 +30,13 @@
   "antigravity": {
     "skillsPath": ".agent/skills",
     "skills": [
+      "workflow-guide",
       "pm-agent",
       "frontend-agent",
       "backend-agent",
       "mobile-agent",
-      "qa-agent"
+      "qa-agent",
+      "debug-agent"
     ]
   }
 }
