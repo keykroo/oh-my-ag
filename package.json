@@ -21,7 +21,13 @@
   "scripts": {
     "validate": "node scripts/validate-skills.js",
     "setup": "echo '✅ Skills are ready! Open this project in Antigravity IDE and start chatting.'",
-    "info": "cat USAGE.md"
+    "info": "cat USAGE.md",
+    "dashboard": "bash scripts/dashboard.sh",
+    "dashboard:web": "node scripts/dashboard-web/server.js"
+  },
+  "dependencies": {
+    "chokidar": "^4.0.0",
+    "ws": "^8.18.0"
   },
   "repository": {
     "type": "git",

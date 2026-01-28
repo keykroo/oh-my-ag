@@ -10,6 +10,7 @@ build/
 *.js
 *.js.map
 !orchestrator.ts
+!scripts/dashboard-web/**/*.js
 
 # Environment
 .env
