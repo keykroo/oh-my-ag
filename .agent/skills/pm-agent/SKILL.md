@@ -81,3 +81,26 @@ Save plan to `.agent/plan.json` and `.gemini/antigravity/brain/current-plan.md`.
 For existing codebase analysis:
 - `get_symbols_overview`: Understand existing architecture
 - `find_symbol`: Locate similar implementations
+
+## Task Board Output Format
+
+When the orchestrator is active, output tasks in task-board.md compatible format in addition to JSON:
+
+```markdown
+### task-{N}
+- **Agent**: {backend|frontend|mobile|qa|debug}
+- **Title**: {task title}
+- **Status**: pending
+- **Priority**: {1-5, lower = higher priority}
+- **Dependencies**: {comma-separated task IDs, or "none"}
+- **Description**: {detailed description}
+- **Acceptance Criteria**:
+  - {criterion 1}
+  - {criterion 2}
+```
+
+Each task must include:
+- `agent`: Which specialist agent should handle it
+- `priority`: Numeric tier for parallel execution grouping (1 = first batch)
+- `dependencies`: Task IDs that must complete before this task can start
+- `acceptance_criteria`: Measurable completion conditions
