@@ -139,3 +139,17 @@ All agents save outputs to `.gemini/antigravity/brain/`:
 **Agents modifying same file**: Assign separate workspaces or sequence them
 **Dependency deadlock**: Review plan and break the cycle
 **Outputs don't align**: Review both, re-spawn one agent with corrected spec
+
+## Automated Orchestration (CLI Mode)
+
+For fully automated execution without manual agent spawning, use the **orchestrator** skill instead.
+
+The orchestrator:
+- Spawns CLI subagents via `gemini -p "..." --yolo`
+- Coordinates them through Serena Memory (shared state bus)
+- Monitors progress and handles retries automatically
+- Collects results and provides a unified summary
+
+**When to use orchestrator vs. workflow-guide**:
+- **orchestrator**: "Run everything automatically" - hands-off parallel execution
+- **workflow-guide**: "I want to manage agents manually" - step-by-step guidance with Agent Manager UI

@@ -21,6 +21,10 @@ build/
 !.gemini/antigravity/brain/.gitkeep
 .agent/plan.json
 
+# Serena Memory (runtime state)
+.serena/memories/*
+!.serena/memories/.gitkeep
+
 # IDE
 .vscode/
 .idea/

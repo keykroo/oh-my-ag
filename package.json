@@ -36,7 +36,8 @@
       "backend-agent",
       "mobile-agent",
       "qa-agent",
-      "debug-agent"
+      "debug-agent",
+      "orchestrator"
     ]
   }
 }
