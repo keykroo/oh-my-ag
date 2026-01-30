@@ -6,7 +6,7 @@ Professional agent skills for Google Antigravity IDE featuring specialized PM, F
 
 > **Like this project?** Give it a star!
 > ```bash
-> gh repo star first-fluke/oh-my-antigravity
+> gh api --method PUT /user/starred/first-fluke/oh-my-antigravity
 > ```
 
 ## Architecture
@@ -132,12 +132,13 @@ This creates `.agent/config/user-preferences.yaml` for your project.
 
 ```bash
 # Via CLI (no install required)
-bunx oh-my-antigravity dashboard
+bunx oh-my-antigravity dashboard      # Web dashboard
+bunx oh-my-antigravity dashboard:web  # Web dashboard (alias)
 # → http://localhost:9847
 
 # Or via npm scripts (if cloned)
-npm run dashboard      # Terminal dashboard
-npm run dashboard:web  # Web dashboard
+npm run dashboard      # Terminal dashboard (bash)
+npm run dashboard:web  # Web dashboard (Node.js)
 ```
 
 ## How It Works

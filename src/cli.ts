@@ -8,6 +8,8 @@ import { startDashboard } from "./dashboard";
 const args = process.argv.slice(2);
 if (args[0] === "dashboard") {
   startDashboard();
+} else if (args[0] === "dashboard:web") {
+  startDashboard();
 } else {
   main().catch(console.error);
 }

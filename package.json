@@ -26,6 +26,16 @@
   ],
   "author": "",
   "license": "MIT",
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/first-fluke"
+    },
+    {
+      "type": "buymeacoffee",
+      "url": "https://buymeacoffee.com/firstfluke"
+    }
+  ],
   "scripts": {
     "build": "bun build src/cli.ts --outfile bin/cli.js --target node --minify",
     "dev": "bun run src/cli.ts",
