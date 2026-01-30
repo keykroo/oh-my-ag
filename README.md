@@ -80,7 +80,7 @@ Select your project type and skills will be installed to `.agent/skills/`.
 ### Option 2: Using vercel-labs/skills
 
 ```bash
-npx skills add first-fluke/oh-my-antigravity
+bunx skills add first-fluke/oh-my-antigravity
 ```
 
 ### Option 3: Clone & Open
