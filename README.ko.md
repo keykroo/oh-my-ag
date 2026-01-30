@@ -224,7 +224,7 @@ bunx oh-my-antigravity dashboard:web
 ```
 
 기능:
-- WebSocket 실시간 푸시 (폴림 없음)
+- WebSocket 실시간 푸시 (폴링 없음)
 - 연결 끊김 시 자동 재연결
 - 볼라색 Serena 테마 UI
 - 세션 상태, 에이전트 테이블, 활동 로그
@@ -287,7 +287,7 @@ bunx oh-my-antigravity dashboard:web
 │   └── poll-status.sh              # 상태 폴링
 ├── package.json
 ├── README.md                       # 영문 가이드
-├── README-ko.md                    # 한글 가이드 (이 파일)
+├── README.ko.md                    # 한글 가이드 (이 파일)
 └── USAGE.md                        # 상세 사용 가이드
 ```
 
@@ -425,9 +425,9 @@ MIT
 | 문서 | 대상 | 용도 |
 |------|------|------|
 | [README.md](./README.md) | 사용자 | 프로젝트 개요 (영문) |
-| [README-ko.md](./README-ko.md) | 사용자 | 프로젝트 개요 (한글) |
+| [README.ko.md](./README.ko.md) | 사용자 | 프로젝트 개요 (한글) |
 | [USAGE.md](./USAGE.md) | 사용자 | 스킬 사용 방법 (영문) |
-| [USAGE-ko.md](./USAGE-ko.md) | 사용자 | 스킬 사용 방법 (한글) |
+| [USAGE.ko.md](./USAGE.ko.md) | 사용자 | 스킬 사용 방법 (한글) |
 | [AGENT_GUIDE.md](./AGENT_GUIDE.md) | 개발자 | **기존 프로젝트에 통합하는 방법** |
 
 ---

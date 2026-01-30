@@ -1,6 +1,6 @@
 # 🛸 Antigravity Multi-Agent Skills
 
-[한국어](./README-ko.md)
+[한국어](./README.ko.md)
 
 Professional agent skills for Google Antigravity IDE featuring specialized PM, Frontend, Backend, Mobile, QA, and Debug agents — coordinated through Antigravity's Agent Manager, CLI-based SubAgent Orchestrator, and real-time Serena Memory dashboards.
 
@@ -318,7 +318,7 @@ Features:
 │   └── poll-status.sh              # Status polling
 ├── package.json
 ├── README.md                       # This file (English)
-├── README-ko.md                    # Korean guide
+├── README.ko.md                    # Korean guide
 └── USAGE.md                        # Detailed usage guide
 ```
 
@@ -530,7 +530,7 @@ MIT
 | Document | Audience | Purpose |
 |----------|----------|---------|
 | [README.md](./README.md) | Users | Project overview (English) |
-| [README-ko.md](./README-ko.md) | Users | Project overview (Korean) |
+| [README.ko.md](./README.ko.md) | Users | Project overview (Korean) |
 | [USAGE.md](./USAGE.md) | Users | How to use the skills (English) |
 | [USAGE-ko.md](./USAGE-ko.md) | Users | How to use the skills (Korean) |
 | [AGENT_GUIDE.md](./AGENT_GUIDE.md) | Developers | **How to integrate into your existing project** |
