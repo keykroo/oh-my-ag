@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.5.0](https://github.com/first-fluke/oh-my-ag/compare/oh-my-ag-v1.4.1...oh-my-ag-v1.5.0) (2026-02-01)
+
+
+### Features
+
+* install agent workflows, user preferences, and mcp.json during setup ([ada8beb](https://github.com/first-fluke/oh-my-ag/commit/ada8beb668bdd767e76938e136630ac78981a47d))
+* introduce `oh-my-ag agent:spawn` and `agent:status` CLI commands ([ddff790](https://github.com/first-fluke/oh-my-ag/commit/ddff79018c16a1dcff0edcf77011d911c2d16f6e))
+* ntroduce `bridge` command, integrate Biome for code formatting, and update dependencies ([8933349](https://github.com/first-fluke/oh-my-ag/commit/89333490cec8df439980534aa1d29d863c61648f))
+
 ## [1.4.1](https://github.com/first-fluke/oh-my-ag/compare/oh-my-ag-v1.4.0...oh-my-ag-v1.4.1) (2026-01-31)
 
 
