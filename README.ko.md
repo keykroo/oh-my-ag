@@ -101,20 +101,28 @@ Antigravity가 `.agent/skills/`의 스킬을 자동 감지합니다.
 
 ### 옵션 4: 기존 프로젝트에 통합하기
 
-이미 Antigravity 프로젝트가 있다면 스킬만 복사하면 됩니다:
+**권장 방법 (CLI):**
+
+기존 프로젝트의 루트 디렉토리에서 다음 명령어를 실행하면 스킬과 워크플로우가 자동으로 설치됩니다:
 
 ```bash
-# 방법 1: 스킬만 복사
+bunx oh-my-ag
+```
+
+**수동 방법 (파일 복사):**
+
+이미 oh-my-ag 저장소를 클론했다면 파일 복사로도 가능합니다:
+
+```bash
+# 1. 스킬 복사
 cp -r oh-my-ag/.agent/skills /path/to/your-project/.agent/
 
-# 방법 2: 스킬 + 대시보드
-cp -r oh-my-ag/.agent/skills /path/to/your-project/.agent/
+# 2. 워크플로우 복사
+cp -r oh-my-ag/.agent/workflows /path/to/your-project/.agent/
 
+# 3. 설정 복사 (선택)
+cp -r oh-my-ag/.agent/config /path/to/your-project/.agent/
 cp oh-my-ag/package.json /path/to/your-project/  # 의존성 병합
-
-# 방법 3: 특정 스킬만
-cp -r oh-my-ag/.agent/skills/backend-agent /path/to/your-project/.agent/skills/
-cp -r oh-my-ag/.agent/skills/frontend-agent /path/to/your-project/.agent/skills/
 ```
 
 본인 프로젝트에서:

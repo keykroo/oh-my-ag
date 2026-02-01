@@ -143,6 +143,31 @@ antigravity open .
 
 Antigravity automatically detects skills in `.agent/skills/`.
 
+### Option 5: Integrate into Existing Project
+
+**Recommended (CLI):**
+
+Run the following command in your project root to automatically install/update skills and workflows:
+
+```bash
+bunx oh-my-ag
+```
+
+**Manual Method:**
+
+If you have cloned this repo, you can simply copy the `.agent` directory:
+
+```bash
+# 1. Copy skills
+cp -r oh-my-ag/.agent/skills /path/to/your-project/.agent/
+
+# 2. Copy workflows
+cp -r oh-my-ag/.agent/workflows /path/to/your-project/.agent/
+
+# 3. Copy config (optional)
+cp -r oh-my-ag/.agent/config /path/to/your-project/.agent/
+```
+
 ### 2. Initial Setup (Optional)
 
 ```
