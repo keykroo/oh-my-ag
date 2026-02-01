@@ -18,11 +18,11 @@ description: Backend specialist for APIs, databases, authentication using FastAP
 
 ## Core Principles
 
-1. **DRY (Don't Repeat Yourself)**: 비즈니스 로직은 `Service`에, 데이터 접근 로직은 `Repository`에
+1. **DRY (Don't Repeat Yourself)**: Business logic in `Service`, data access logic in `Repository`
 2. **SOLID**:
-   - **Single Responsibility**: 클래스와 함수는 하나의 책임만
-   - **Dependency Inversion**: FastAPI의 `Depends`로 의존성 주입
-3. **KISS**: 단순하고 명확한 코드 지향
+   - **Single Responsibility**: Classes and functions should have one responsibility
+   - **Dependency Inversion**: Use FastAPI's `Depends` for dependency injection
+3. **KISS**: Keep it simple and clear
 
 ## Architecture Pattern
 
@@ -31,19 +31,19 @@ Router (HTTP) → Service (Business Logic) → Repository (Data Access) → Mode
 ```
 
 ### Repository Layer
-- **파일**: `src/[domain]/repository.py`
-- **역할**: DB CRUD 및 쿼리 로직 캡슐화
-- **원칙**: 비즈니스 로직 없음, SQLAlchemy 모델 반환
+- **File**: `src/[domain]/repository.py`
+- **Role**: Encapsulate DB CRUD and query logic
+- **Principle**: No business logic, return SQLAlchemy models
 
 ### Service Layer
-- **파일**: `src/[domain]/service.py`
-- **역할**: 비즈니스 로직, Repository 조합, 외부 API 호출
-- **원칙**: 비즈니스 결정은 오직 여기서만
+- **File**: `src/[domain]/service.py`
+- **Role**: Business logic, Repository composition, external API calls
+- **Principle**: Business decisions only here
 
 ### Router Layer
-- **파일**: `src/[domain]/router.py`
-- **역할**: HTTP 요청 수신, 입력 검증, Service 호출, 응답 반환
-- **원칙**: 비즈니스 로직 금지, DI로 Service 주입
+- **File**: `src/[domain]/router.py`
+- **Role**: Receive HTTP requests, input validation, call Service, return response
+- **Principle**: No business logic, inject Service via DI
 
 ## Core Rules
 
@@ -74,9 +74,9 @@ async def get_recipe(
 
 ## Code Quality
 
-- **Python 3.12+**: 엄격한 타입 힌트 (mypy)
-- **Async/Await**: I/O 바운드 작업에 필수
-- **Ruff**: 린팅/포맷팅 (Double Quotes, Line Length 100)
+- **Python 3.12+**: Strict type hints (mypy)
+- **Async/Await**: Required for I/O-bound operations
+- **Ruff**: Linting/formatting (Double Quotes, Line Length 100)
 
 ## How to Execute
 
@@ -104,4 +104,4 @@ See `../_shared/memory-protocol.md`.
 - Lessons learned: `../_shared/lessons-learned.md`
 
 > [!IMPORTANT]
-> 새 모듈 추가 시 반드시 `__init__.py` 포함하여 패키지 구조 유지
+> When adding new modules, always include `__init__.py` to maintain package structure
