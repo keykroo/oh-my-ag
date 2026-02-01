@@ -4,8 +4,10 @@ import * as p from "@clack/prompts";
 import pc from "picocolors";
 import {
   getAllSkills,
+  installConfigs,
   installShared,
   installSkill,
+  installWorkflows,
   PRESETS,
 } from "../lib/skills.js";
 
@@ -63,6 +65,8 @@ export async function install(): Promise<void> {
 
   try {
     await installShared(cwd);
+    await installWorkflows(cwd);
+    await installConfigs(cwd);
 
     for (const skillName of selectedSkills) {
       spinner.message(`Installing ${pc.cyan(skillName)}...`);

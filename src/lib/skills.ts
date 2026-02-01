@@ -4,6 +4,7 @@ import type { SkillInfo, SkillsRegistry } from "../types/index.js";
 
 export const REPO = "first-fluke/oh-my-ag";
 export const GITHUB_RAW = `https://raw.githubusercontent.com/${REPO}/main/.agent/skills`;
+export const GITHUB_AGENT_ROOT = `https://raw.githubusercontent.com/${REPO}/main/.agent`;
 
 export const SKILLS: SkillsRegistry = {
   domain: [
@@ -104,6 +105,59 @@ export async function installShared(targetDir: string): Promise<void> {
 
     const content = await res.text();
     writeFileSync(join(sharedDir, file), content, "utf-8");
+  }
+}
+
+export async function installWorkflows(targetDir: string): Promise<void> {
+  const workflowsDir = join(targetDir, ".agent", "workflows");
+  const files = [
+    "coordinate.md",
+    "debug.md",
+    "orchestrate.md",
+    "plan.md",
+    "review.md",
+    "setup.md",
+    "tools.md",
+  ];
+
+  if (!existsSync(workflowsDir)) {
+    mkdirSync(workflowsDir, { recursive: true });
+  }
+
+  for (const file of files) {
+    const url = `${GITHUB_AGENT_ROOT}/workflows/${file}`;
+    const res = await fetch(url);
+    if (!res.ok) continue;
+
+    const content = await res.text();
+    writeFileSync(join(workflowsDir, file), content, "utf-8");
+  }
+}
+
+export async function installConfigs(targetDir: string): Promise<void> {
+  const configDir = join(targetDir, ".agent", "config");
+  const agentDir = join(targetDir, ".agent");
+
+  // Install config/user-preferences.yaml
+  if (!existsSync(configDir)) {
+    mkdirSync(configDir, { recursive: true });
+  }
+
+  const configFile = "user-preferences.yaml";
+  const configUrl = `${GITHUB_AGENT_ROOT}/config/${configFile}`;
+  const configRes = await fetch(configUrl);
+  if (configRes.ok) {
+    const content = await configRes.text();
+    writeFileSync(join(configDir, configFile), content, "utf-8");
+  }
+
+  // Install mcp.json
+  const mcpFile = "mcp.json";
+  const mcpUrl = `${GITHUB_AGENT_ROOT}/${mcpFile}`;
+  const mcpRes = await fetch(mcpUrl);
+  if (mcpRes.ok) {
+    const content = await mcpRes.text();
+    writeFileSync(join(agentDir, mcpFile), content, "utf-8");
   }
 }
 
