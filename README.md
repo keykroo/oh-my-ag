@@ -28,7 +28,6 @@ Professional agent skills for Google Antigravity IDE featuring specialized PM, F
 - [Project Structure](#project-structure)
 - [Skill Architecture](#skill-architecture)
 - [Skills Overview](#skills-overview)
-
 - [CLI Commands](#cli-commands)
 - [Troubleshooting](#troubleshooting)
 - [Central Registry](#central-registry-for-multi-repo-setup)
