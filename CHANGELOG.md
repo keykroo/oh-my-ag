@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.7](https://github.com/first-fluke/oh-my-ag/compare/oh-my-ag-v1.5.6...oh-my-ag-v1.5.7) (2026-02-02)
+
+
+### Bug Fixes
+
+* **dashboard:** filter activity to progress/result files only ([99a0e63](https://github.com/first-fluke/oh-my-ag/commit/99a0e635a5c6522195181119c21fdb7ddf8abef4))
+
+
+### Miscellaneous
+
+* update prompt-manifest.json for 1.5.6 ([02aee6e](https://github.com/first-fluke/oh-my-ag/commit/02aee6e14f21a0f1baef3146ef7e9fd3ff33a243))
+
 ## [1.5.6](https://github.com/first-fluke/oh-my-ag/compare/oh-my-ag-v1.5.5...oh-my-ag-v1.5.6) (2026-02-02)
 
 
