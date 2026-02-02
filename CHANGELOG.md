@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.5](https://github.com/first-fluke/oh-my-ag/compare/oh-my-ag-v1.5.4...oh-my-ag-v1.5.5) (2026-02-02)
+
+
+### Documentation
+
+* fix USAGE.ko.md filename reference in README files ([1b85842](https://github.com/first-fluke/oh-my-ag/commit/1b85842fabc35dcdab3d26f90df66f76cae01608))
+
+
+### Miscellaneous
+
+* update prompt-manifest.json for 1.5.4 ([3c01a32](https://github.com/first-fluke/oh-my-ag/commit/3c01a32ff87a3fd6bd5dbb14600ecfbee222d80e))
+
 ## [1.5.4](https://github.com/first-fluke/oh-my-ag/compare/oh-my-ag-v1.5.3...oh-my-ag-v1.5.4) (2026-02-02)
 
 
