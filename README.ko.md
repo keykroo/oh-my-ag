@@ -5,7 +5,7 @@ Google Antigravity IDE용 전문 에이전트 스킬 모음. PM, Frontend, Backe
 > **마음에 드셨나요?** 스타 눌러주세요!
 >
 > ```bash
-> gh repo star first-fluke/oh-my-ag
+> gh api --method PUT /user/starred/first-fluke/oh-my-ag
 > ```
 >
 > **풀스택 개발이 처음이신가요?** 최적화된 스타터 템플릿으로 시작필보세요:
