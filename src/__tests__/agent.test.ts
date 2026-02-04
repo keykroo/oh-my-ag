@@ -71,11 +71,13 @@ describe("agent command", () => {
         if (target === "/tmp") return true;
         return true;
       });
-      mockFsFunctions.readFileSync.mockImplementation((pathArg: fs.PathLike) => {
-        const target = pathArg.toString();
-        if (target.includes("prompt.md")) return "prompt content";
-        return "";
-      });
+      mockFsFunctions.readFileSync.mockImplementation(
+        (pathArg: fs.PathLike) => {
+          const target = pathArg.toString();
+          if (target.includes("prompt.md")) return "prompt content";
+          return "";
+        },
+      );
       mockFsFunctions.openSync.mockReturnValue(123);
 
       const mockChild = {

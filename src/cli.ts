@@ -90,15 +90,14 @@ program
 program
   .command("agent:spawn <agent-id> <prompt-file> <session-id> <workspace>")
   .description("Spawn a subagent (wraps gemini with logging and PID tracking)")
-  .option("-v, --vendor <vendor>", "CLI vendor override (gemini/claude/codex/qwen)")
+  .option(
+    "-v, --vendor <vendor>",
+    "CLI vendor override (gemini/claude/codex/qwen)",
+  )
   .action((agentId, promptFile, sessionId, workspace, options) => {
-    spawnAgent(
-      agentId,
-      promptFile,
-      sessionId,
-      workspace,
-      options.vendor,
-    ).catch(console.error);
+    spawnAgent(agentId, promptFile, sessionId, workspace, options.vendor).catch(
+      console.error,
+    );
   });
 
 program

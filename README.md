@@ -38,35 +38,40 @@ Orchestrate 6 specialized domain agents (PM, Frontend, Backend, Mobile, QA, Debu
 ## Architecture
 
 ```mermaid
-flowchart TB
-    subgraph Coordination["🎯 Coordination"]
-        PM[pm-agent<br/>Task Decomposition]
-        WF[workflow-guide<br/>Manual Orchestration]
-        ORC[orchestrator<br/>Parallel Execution]
+flowchart TD
+    subgraph Workflows["Workflows"]
+        direction TB
+        W1["/coordinate"]
+        W2["/orchestrate"]
+        W3["/plan"]
+        W4["/review"]
+        W5["/debug"]
     end
 
-    subgraph Domain["💻 Domain Agents"]
-        FE[frontend-agent<br/>React/Next.js]
-        BE[backend-agent<br/>FastAPI/Python]
-        MB[mobile-agent<br/>Flutter/Dart]
+    subgraph Orchestration["Orchestration"]
+        direction TB
+        PM[pm-agent]
+        WF[workflow-guide]
+        ORC[orchestrator]
     end
 
-    subgraph Quality["✅ Quality"]
-        QA[qa-agent<br/>Security/A11y/Perf]
-        DBG[debug-agent<br/>Bug Fixing]
+    subgraph Domain["Domain Agents"]
+        direction TB
+        FE[frontend-agent]
+        BE[backend-agent]
+        MB[mobile-agent]
     end
 
-    subgraph Utility["🔧 Utility"]
-        CMT[commit<br/>Conventional Commits]
+    subgraph Quality["Quality"]
+        direction TB
+        QA[qa-agent]
+        DBG[debug-agent]
     end
 
-    PM -->|API Contracts| FE & BE & MB
-    ORC -->|Spawns| FE & BE & MB
-    WF -->|Coordinates| FE & BE & MB
-    FE & BE & MB -->|Review| QA
-    QA -->|Issues| DBG
-    DBG -->|Fix| FE & BE & MB
-    FE & BE & MB -->|Changes| CMT
+    Workflows --> Orchestration
+    Orchestration --> Domain
+    Domain --> Quality
+    Quality --> CMT([commit])
 ```
 
 ## What Is This?
@@ -501,7 +506,6 @@ bunx oh-my-ag stats --reset  # Reset metrics
 bunx oh-my-ag retro          # Session retrospective (learnings & next steps)
 bunx oh-my-ag memory:init    # Initialize Serena memory schema
 bunx oh-my-ag dashboard      # Terminal real-time dashboard
-bunx oh-my-ag dashboard:web  # Web dashboard (http://localhost:9847)
 bunx oh-my-ag dashboard:web  # Web dashboard (http://localhost:9847)
 bunx oh-my-ag bridge         # Bridge MCP stdio to SSE (for Serena)
 bunx oh-my-ag help           # Show help

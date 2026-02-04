@@ -105,7 +105,10 @@ export async function stats(
     : null;
   const sessionDurationSeconds =
     sessionStartedAt && !Number.isNaN(sessionStartedAt.getTime())
-      ? Math.max(0, Math.floor((Date.now() - sessionStartedAt.getTime()) / 1000))
+      ? Math.max(
+          0,
+          Math.floor((Date.now() - sessionStartedAt.getTime()) / 1000),
+        )
       : 0;
 
   for (const [skill, count] of Object.entries(detectedSkills)) {

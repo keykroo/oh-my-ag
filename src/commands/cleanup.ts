@@ -1,6 +1,6 @@
 import { existsSync, readdirSync, readFileSync, rmSync } from "node:fs";
-import { join } from "node:path";
 import { tmpdir } from "node:os";
+import { join } from "node:path";
 import * as p from "@clack/prompts";
 import pc from "picocolors";
 import type { CleanupResult } from "../types/index.js";

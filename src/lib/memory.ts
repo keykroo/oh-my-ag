@@ -1,4 +1,10 @@
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  writeFileSync,
+} from "node:fs";
 import { join } from "node:path";
 
 export interface AgentActivity {
@@ -66,7 +72,10 @@ function formatSessionId(date: Date): string {
   return `session-${yyyy}${mm}${dd}-${hh}${mi}${ss}`;
 }
 
-function buildOrchestratorTemplate(sessionId: string, startedAt: string): string {
+function buildOrchestratorTemplate(
+  sessionId: string,
+  startedAt: string,
+): string {
   return [
     "# Orchestrator Session",
     `## ID: ${sessionId}`,
@@ -259,7 +268,9 @@ export function getCompletedTasksCount(cwd: string): number {
     completed = Math.max(completed, taskBoardCompleted);
   }
 
-  const sessionFile = readFileSafe(join(memoriesDir, "orchestrator-session.md"));
+  const sessionFile = readFileSafe(
+    join(memoriesDir, "orchestrator-session.md"),
+  );
   if (sessionFile) {
     const summaryCompleted = sessionFile.match(/Completed:\s*(\d+)/i);
     if (summaryCompleted?.[1]) {
@@ -336,7 +347,9 @@ export function ensureMemorySchema(
     mkdirSync(memoriesDir, { recursive: true });
   }
 
-  const existingSession = readFileSafe(join(memoriesDir, "orchestrator-session.md"));
+  const existingSession = readFileSafe(
+    join(memoriesDir, "orchestrator-session.md"),
+  );
   const existingTaskBoard = readFileSafe(join(memoriesDir, "task-board.md"));
   const detectedSessionId =
     extractSessionId(existingSession) ||
