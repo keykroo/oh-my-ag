@@ -595,6 +595,10 @@ Consumer projects can use the sync action directly:
     github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-ag&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-ag&type=date&legend=bottom-right)
+
 ## License
 
 MIT

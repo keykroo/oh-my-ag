@@ -494,6 +494,10 @@ bunx oh-my-ag help           # 도움말 표시
 2. 다른 에이전트의 산출물을 참조하여 재생성
 3. QA Agent로 최종 일관성 검사
 
+## 스타 히스토리
+
+[![Star History Chart](https://api.star-history.com/svg?repos=first-fluke/oh-my-ag&type=date&legend=bottom-right)](https://www.star-history.com/#first-fluke/oh-my-ag&type=date&legend=bottom-right)
+
 ## 라이선스
 
 MIT
