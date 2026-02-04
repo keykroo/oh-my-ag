@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.8.1](https://github.com/first-fluke/oh-my-ag/compare/oh-my-ag-v1.8.0...oh-my-ag-v1.8.1) (2026-02-04)
+
+
+### Documentation
+
+* improve architecture diagram and fix README inconsistencies ([ad87c9d](https://github.com/first-fluke/oh-my-ag/commit/ad87c9dbc12ca9e7e45e4e8debf54f536dce441e))
+
+
+### Miscellaneous
+
+* update prompt-manifest.json for 1.8.0 ([897a476](https://github.com/first-fluke/oh-my-ag/commit/897a476e803daaabf6279f5ecf2e52ec98b075a2))
+
 ## [1.8.0](https://github.com/first-fluke/oh-my-ag/compare/oh-my-ag-v1.7.1...oh-my-ag-v1.8.0) (2026-02-04)
 
 
