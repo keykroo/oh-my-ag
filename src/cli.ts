@@ -92,7 +92,7 @@ program
 
 program
   .command("bridge [url]")
-  .description("Bridge MCP stdio to SSE (for Serena)")
+  .description("Bridge MCP stdio to Streamable HTTP (for Serena)")
   .action((url) => {
     bridge(url).catch(console.error);
   });
