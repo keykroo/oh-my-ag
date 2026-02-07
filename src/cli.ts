@@ -9,6 +9,7 @@ import { initMemory } from "./commands/memory.js";
 import { retro } from "./commands/retro.js";
 import { stats } from "./commands/stats.js";
 import { update } from "./commands/update.js";
+import { usage } from "./commands/usage.js";
 import { startDashboard } from "./dashboard.js";
 import { startTerminalDashboard } from "./terminal-dashboard.js";
 
@@ -36,6 +37,14 @@ program
   .description("Start web dashboard on http://localhost:9847")
   .action(() => {
     startDashboard();
+  });
+
+program
+  .command("usage")
+  .description("Show model usage quotas (connects to local Antigravity IDE)")
+  .option("--json", "Output as JSON")
+  .action((options) => {
+    usage(options.json).catch(console.error);
   });
 
 program
