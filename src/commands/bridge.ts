@@ -5,7 +5,7 @@ import https from "node:https";
 import { homedir } from "node:os";
 import { join } from "node:path";
 
-const DEFAULT_SSE_URL = "http://localhost:12341/sse";
+const DEFAULT_SSE_URL = "http://localhost:12341/mcp";
 const STARTUP_CHECK_INTERVAL_MS = 1000;
 const STARTUP_PROBE_TIMEOUT_MS = Number.parseInt(
   process.env.OH_MY_AG_BRIDGE_PROBE_TIMEOUT_MS ?? "2000",
@@ -130,7 +130,7 @@ export async function bridge(sseUrlArg?: string) {
       "git+https://github.com/oraios/serena",
       "serena-mcp-server",
       "--transport",
-      "sse",
+      "streamable-http",
       "--host",
       host,
       "--port",

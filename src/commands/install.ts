@@ -143,7 +143,7 @@ export async function install(): Promise<void> {
               "-y",
               "oh-my-ag@latest",
               "bridge",
-              "http://localhost:12341/sse",
+              "http://localhost:12341/mcp",
             ],
             disabled: false,
           };
@@ -177,11 +177,11 @@ export async function install(): Promise<void> {
     if (geminiConfigExists && geminiConfig && geminiConfig.mcpServers) {
       const serenaConfig = geminiConfig.mcpServers.serena;
       const isSerenaConfigured =
-        serenaConfig && serenaConfig.url === "http://localhost:12341/sse";
+        serenaConfig && serenaConfig.url === "http://localhost:12341/mcp";
 
       if (!isSerenaConfigured) {
         const shouldConfigureGemini = await p.confirm({
-          message: "Configure Serena for Gemini CLI? (SSE Mode)",
+          message: "Configure Serena for Gemini CLI? (HTTP Mode)",
           initialValue: true,
         });
 
@@ -189,7 +189,7 @@ export async function install(): Promise<void> {
           // User cancelled
         } else if (shouldConfigureGemini) {
           geminiConfig.mcpServers.serena = {
-            url: "http://localhost:12341/sse",
+            url: "http://localhost:12341/mcp",
           };
 
           try {
