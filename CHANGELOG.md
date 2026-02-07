@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.9.1](https://github.com/first-fluke/oh-my-ag/compare/oh-my-ag-v1.9.0...oh-my-ag-v1.9.1) (2026-02-07)
+
+
+### Bug Fixes
+
+* **bridge:** add missing --transport sse flag and harden startup checks ([98a0019](https://github.com/first-fluke/oh-my-ag/commit/98a00199da2578aa01f0e53aae1adcad430e571c))
+
+
+### Miscellaneous
+
+* update prompt-manifest.json for 1.9.0 ([0db8e78](https://github.com/first-fluke/oh-my-ag/commit/0db8e78e91d476b6b05b075b7c1cf9d355241d32))
+
 ## [1.9.0](https://github.com/first-fluke/oh-my-ag/compare/oh-my-ag-v1.8.1...oh-my-ag-v1.9.0) (2026-02-07)
 
 
