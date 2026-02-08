@@ -1,3 +1,4 @@
+import { execSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import * as p from "@clack/prompts";
@@ -92,6 +93,33 @@ export async function install(): Promise<void> {
       `${pc.yellow("❤️")} Enjoying oh-my-ag? Give it a star!\n${pc.dim("gh api --method PUT /user/starred/first-fluke/oh-my-ag")}`,
       "Support",
     );
+
+    // --- Git rerere Setup ---
+    try {
+      const rerereEnabled = execSync("git config --get rerere.enabled", {
+        encoding: "utf-8",
+        stdio: ["pipe", "pipe", "ignore"],
+      }).trim();
+
+      if (rerereEnabled === "true") {
+        p.log.success(pc.green("git rerere is already enabled."));
+      }
+    } catch {
+      const shouldEnable = await p.confirm({
+        message:
+          "Enable git rerere? (Recommended for multi-agent merge conflict reuse)",
+        initialValue: true,
+      });
+
+      if (!p.isCancel(shouldEnable) && shouldEnable) {
+        try {
+          execSync("git config --global rerere.enabled true");
+          p.log.success(pc.green("git rerere enabled globally!"));
+        } catch (err) {
+          p.log.error(`Failed to enable git rerere: ${err}`);
+        }
+      }
+    }
 
     // --- MCP Configuration Setup ---
     const homeDir = process.env.HOME || process.env.USERPROFILE || "";

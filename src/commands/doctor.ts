@@ -126,6 +126,15 @@ export async function doctor(jsonMode = false): Promise<void> {
   const skillChecks = await checkSkills();
   const globalWorkflows = await checkGlobalWorkflows();
 
+  let rerereEnabled = false;
+  try {
+    const val = execSync("git config --get rerere.enabled", {
+      encoding: "utf-8",
+      stdio: ["pipe", "pipe", "ignore"],
+    }).trim();
+    rerereEnabled = val === "true";
+  } catch {}
+
   const serenaDir = join(cwd, ".serena", "memories");
   const hasSerena = existsSync(serenaDir);
   let serenaFileCount = 0;
@@ -148,7 +157,8 @@ export async function doctor(jsonMode = false): Promise<void> {
   const totalIssues =
     missingCLIs.length +
     missingSkills.length +
-    (globalWorkflows.installed ? 0 : 1);
+    (globalWorkflows.installed ? 0 : 1) +
+    (rerereEnabled ? 0 : 1);
 
   if (jsonMode) {
     const result = {
@@ -178,6 +188,7 @@ export async function doctor(jsonMode = false): Promise<void> {
         count: globalWorkflows.count,
       },
       serena: { exists: hasSerena, fileCount: serenaFileCount },
+      gitRerere: { enabled: rerereEnabled },
     };
     console.log(JSON.stringify(result, null, 2));
     process.exit(totalIssues === 0 ? 0 : 1);
@@ -361,6 +372,30 @@ export async function doctor(jsonMode = false): Promise<void> {
         `${pc.red("❌")} Global workflows missing\n${pc.dim("Run 'oh-my-ag' to install or reinstall global workflows")}`,
         "Global Workflows",
       );
+    }
+
+    if (rerereEnabled) {
+      p.note(`${pc.green("✅")} git rerere is enabled`, "Git Config");
+    } else {
+      const shouldEnable = await p.confirm({
+        message:
+          "Enable git rerere? (Recommended for multi-agent merge conflict reuse)",
+        initialValue: true,
+      });
+
+      if (!p.isCancel(shouldEnable) && shouldEnable) {
+        try {
+          execSync("git config --global rerere.enabled true");
+          p.log.success(pc.green("git rerere enabled globally!"));
+        } catch (err) {
+          p.log.error(`Failed to enable git rerere: ${err}`);
+        }
+      } else {
+        p.note(
+          `${pc.yellow("⚠️")} git rerere is not enabled\n${pc.dim("Run: git config --global rerere.enabled true")}`,
+          "Git Config",
+        );
+      }
     }
 
     if (totalIssues === 0) {
