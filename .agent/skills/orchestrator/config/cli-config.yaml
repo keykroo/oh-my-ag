@@ -14,7 +14,7 @@ vendors:
     output_format: "json"
     auto_approve_flag: "--approval-mode=yolo"
     model_flag: "-m"
-    default_model: "gemini-2.5-pro"
+    default_model: "auto"
     include_dirs_flag: "--include-directories"
     # JSON output parsing
     response_jq: ".response"
@@ -26,10 +26,9 @@ vendors:
     prompt_flag: "-p"
     output_format_flag: "--output-format"
     output_format: "json"
+    auto_approve_flag: "--dangerously-skip-permissions"
     model_flag: "--model"
     default_model: "sonnet"
-    # Additional flags to isolate from global settings
-    isolation_flags: "--setting-sources \"\""
     # JSON output parsing
     response_jq: ".result"
     isolation_method: "flags"
@@ -41,7 +40,7 @@ vendors:
     output_format_flag: "--json"
     auto_approve_flag: "--full-auto"
     model_flag: "-m"
-    default_model: "codex-3"
+    default_model: "gpt-5.3-codex"
     # Environment variable for isolation
     isolation_env: "CODEX_HOME=/tmp/codex-subagent-$$"
     response_jq: ".response"
@@ -53,8 +52,8 @@ vendors:
     output_format_flag: "--output-format"
     output_format: "json"
     auto_approve_flag: "--yolo"
-    model_flag: "--model"
-    default_model: "qwen3-coder"
+    model_flag: "-m"
+    default_model: "qwen3-coder-plus"
     response_jq: ".output"
     isolation_method: "directory"
 
@@ -68,10 +67,3 @@ execution:
   log_level: info
   # Keep intermediate files for debugging
   keep_temp_files: false
-
-# Workspace configuration for parallel execution
-workspaces:
-  backend: "./backend"
-  frontend: "./frontend"
-  mobile: "./mobile"
-  shared: "./shared"

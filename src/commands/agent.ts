@@ -55,7 +55,7 @@ function splitArgs(value: string): string[] {
 const UserPreferencesSchema = z
   .object({
     default_cli: z.string().optional(),
-    agent_cli_mapping: z.record(z.string()).optional(),
+    agent_cli_mapping: z.record(z.string(), z.string()).optional(),
   })
   .passthrough()
   .transform((value) => ({
