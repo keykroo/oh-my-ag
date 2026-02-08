@@ -10,6 +10,7 @@ import { retro } from "./commands/retro.js";
 import { stats } from "./commands/stats.js";
 import { update } from "./commands/update.js";
 import { usage } from "./commands/usage.js";
+import { verify } from "./commands/verify.js";
 import { startDashboard } from "./dashboard.js";
 import { startTerminalDashboard } from "./terminal-dashboard.js";
 
@@ -133,6 +134,15 @@ program
   .option("--force", "Overwrite empty or existing schema files")
   .action((options) => {
     initMemory(options.json, options.force).catch(console.error);
+  });
+
+program
+  .command("verify <agent-type>")
+  .description("Verify subagent output (backend/frontend/mobile/qa/debug/pm)")
+  .option("-w, --workspace <path>", "Workspace path", process.cwd())
+  .option("--json", "Output as JSON")
+  .action((agentType, options) => {
+    verify(agentType, options.workspace, options.json).catch(console.error);
   });
 
 program.parse();

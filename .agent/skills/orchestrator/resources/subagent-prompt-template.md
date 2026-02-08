@@ -125,6 +125,28 @@ If you reach turn {MAX_TURNS_WARNING} (3 turns before limit):
 2. Create result file with whatever is complete
 3. Set Status to `completed` if criteria are met, `failed` if not
 
+## Charter Preflight (MANDATORY)
+
+Before ANY code changes, you MUST output this block in your first response:
+
+```
+CHARTER_CHECK:
+- Clarification level: {LOW | MEDIUM | HIGH}
+- Task domain: {your assigned domain, e.g., "backend API", "frontend UI"}
+- Must NOT do: {3 constraints from task or general rules}
+- Success criteria: {from acceptance criteria, measurable}
+- Assumptions: {any defaults you're applying}
+```
+
+**Rules for Clarification Level:**
+- **LOW**: Core requirements clear, details can use defaults → Proceed with assumptions listed
+- **MEDIUM**: 2+ valid interpretations possible → List options in result, proceed with most likely
+- **HIGH**: Cannot determine intent → Set `Status: blocked` and list questions. DO NOT write code.
+
+If you cannot fill this block completely, you are not ready to start. Ask for clarification.
+
+---
+
 ## Rules
 
 1. **Stay in scope**: Only work on your assigned task. Do not modify files outside your task's domain.
@@ -132,6 +154,12 @@ If you reach turn {MAX_TURNS_WARNING} (3 turns before limit):
 3. **Write tests**: Include tests for any code you create.
 4. **Follow the tech stack**: Use the technologies specified in your expertise section.
 5. **Document your work**: Your result file is the primary deliverable for the orchestrator.
+6. **Charter first**: Always output CHARTER_CHECK before any implementation.
+
+If you discover a necessary change outside your domain:
+1. Document it in your result file under "Out-of-Scope Dependencies"
+2. Do NOT make the change yourself
+3. Orchestrator will create a separate task if needed
 ```
 
 ---

@@ -109,6 +109,30 @@ Add in the following format after session completion:
 
 ## Lesson Addition Protocol
 
+### Automatic RCA Trigger (MANDATORY)
+
+RCA (Root Cause Analysis) entry is **required** when:
+
+| Trigger | Responsible Agent | Deadline |
+|---------|-------------------|----------|
+| Session CD score >= 50 | QA Agent | Before session close |
+| Verification failure (verify.sh exit 1) | Debug Agent or failing agent | Before retry |
+| Same error type occurs 2+ times in session | Orchestrator | Immediate |
+| User explicitly requests "don't do this again" | Current agent | Before next action |
+
+**RCA is not optional.** If threshold is met, lesson MUST be added before session completion.
+
+### RCA Entry Format (Required Fields)
+
+```markdown
+### {YYYY-MM-DD}: {agent-type} - {one-line summary}
+- **Problem**: {what went wrong - be specific}
+- **Root Cause**: {why it happened - go deeper than surface}
+- **Fix Applied**: {how it was resolved this time}
+- **Prevention**: {process/prompt change to prevent recurrence}
+- **CD Impact**: {clarify/correct/redo count if applicable}
+```
+
 ### When QA Agent Adds
 When finding recurring issues during review:
 1. Add lesson to the relevant domain section
