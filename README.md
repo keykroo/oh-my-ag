@@ -136,23 +136,7 @@ You'll also need at least one CLI tool:
 | Codex | `bun install --global @openai/codex` | `codex auth` |
 | Qwen | `bun install --global @qwen-code/qwen` | `qwen auth` |
 
-### Option 3: Using vercel-labs/skills
-
-```bash
-bunx skills add first-fluke/oh-my-ag
-```
-
-### Option 4: Clone & Open
-
-```bash
-git clone https://github.com/first-fluke/oh-my-ag
-cd oh-my-ag
-antigravity open .
-```
-
-Antigravity automatically detects skills in `.agent/skills/`.
-
-### Option 5: Integrate into Existing Project
+### Option 3: Integrate into Existing Project
 
 **Recommended (CLI):**
 

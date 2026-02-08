@@ -135,17 +135,7 @@ bun install --global oh-my-ag
 | Codex | `bun install --global @openai/codex` | `codex auth` |
 | Qwen | `bun install --global @qwen-code/qwen` | `qwen auth` |
 
-### 옵션 3: 클론 & 열기
-
-```bash
-git clone <repository-url>
-cd oh-my-ag
-antigravity open .
-```
-
-Antigravity가 `.agent/skills/`의 스킬을 자동 감지합니다.
-
-### 옵션 4: 기존 프로젝트에 통합하기
+### 옵션 3: 기존 프로젝트에 통합하기
 
 **권장 방법 (CLI):**
 
