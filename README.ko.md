@@ -257,12 +257,18 @@ bunx oh-my-ag dashboard:web  # 웹 대시보드 (브라우저 UI)
 프로그래밍 방식의 병렬 실행:
 
 ```bash
-# 단일 에이전트
-oh-my-ag agent:spawn backend "인증 API 구현" session-01 ./backend
+# 인라인 프롬프트 (workspace 자동 탐지)
+oh-my-ag agent:spawn backend "인증 API 구현" session-01
 
-# 병렬 실행 (orchestrator 스킬 사용 시)
-oh-my-ag agent:spawn backend "인증 API 구현" session-01 ./backend &
-oh-my-ag agent:spawn frontend "로그인 폼 생성" session-01 ./frontend &
+# 파일에서 프롬프트 읽기
+oh-my-ag agent:spawn backend .agent/tasks/backend-auth.json session-01
+
+# 명시적 workspace 지정
+oh-my-ag agent:spawn backend "인증 API 구현" session-01 -w ./apps/api
+
+# 병렬 실행
+oh-my-ag agent:spawn backend "인증 API 구현" session-01 &
+oh-my-ag agent:spawn frontend "로그인 폼 생성" session-01 &
 wait
 ```
 

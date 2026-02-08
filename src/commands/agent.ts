@@ -209,36 +209,78 @@ function resolvePromptFlag(
   return defaults[vendor] ?? "-p";
 }
 
+const WORKSPACE_CANDIDATES: Record<string, string[]> = {
+  frontend: [
+    "apps/web",
+    "apps/frontend",
+    "apps/client",
+    "packages/web",
+    "packages/frontend",
+    "frontend",
+    "web",
+    "client",
+  ],
+  backend: [
+    "apps/api",
+    "apps/backend",
+    "apps/server",
+    "packages/api",
+    "packages/backend",
+    "backend",
+    "api",
+    "server",
+  ],
+  mobile: ["apps/mobile", "apps/app", "packages/mobile", "mobile", "app"],
+};
+
+function detectWorkspace(agentId: string): string {
+  const candidates = WORKSPACE_CANDIDATES[agentId];
+  if (candidates) {
+    for (const candidate of candidates) {
+      const resolved = path.resolve(candidate);
+      if (fs.existsSync(resolved) && fs.statSync(resolved).isDirectory()) {
+        return candidate;
+      }
+    }
+  }
+  return ".";
+}
+
+function resolvePromptContent(prompt: string): string {
+  const resolved = path.resolve(prompt);
+  if (fs.existsSync(resolved) && fs.statSync(resolved).isFile()) {
+    return fs.readFileSync(resolved, "utf-8");
+  }
+  return prompt;
+}
+
 export async function spawnAgent(
   agentId: string,
-  promptFile: string,
+  prompt: string,
   sessionId: string,
   workspace: string,
   vendorOverride?: string,
 ) {
-  const resolvedPromptFile = path.resolve(promptFile);
-  const resolvedWorkspace = path.resolve(workspace);
-
-  if (!fs.existsSync(resolvedPromptFile)) {
-    console.error(
-      color.red(`ERROR: Prompt file not found: ${resolvedPromptFile}`),
-    );
-    process.exit(1);
-  }
+  const effectiveWorkspace =
+    workspace === "." ? detectWorkspace(agentId) : workspace;
+  const resolvedWorkspace = path.resolve(effectiveWorkspace);
 
   if (!fs.existsSync(resolvedWorkspace)) {
-    console.error(
-      color.red(`ERROR: Workspace directory not found: ${resolvedWorkspace}`),
+    fs.mkdirSync(resolvedWorkspace, { recursive: true });
+    console.log(
+      color.dim(`[${agentId}] Created workspace: ${resolvedWorkspace}`),
     );
-    process.exit(1);
+  } else if (effectiveWorkspace !== workspace) {
+    console.log(
+      color.blue(`[${agentId}] Auto-detected workspace: ${effectiveWorkspace}`),
+    );
   }
 
   const tmpDir = tmpdir();
   const logFile = path.join(tmpDir, `subagent-${sessionId}-${agentId}.log`);
   const pidFile = path.join(tmpDir, `subagent-${sessionId}-${agentId}.pid`);
 
-  // Read prompt content
-  const promptContent = fs.readFileSync(resolvedPromptFile, "utf-8");
+  const promptContent = resolvePromptContent(prompt);
 
   const { vendor, config } = resolveVendor(agentId, vendorOverride);
   const vendorConfig = config?.vendors?.[vendor] || {};

@@ -252,12 +252,18 @@ For complex projects, use Antigravity's **Agent Manager** (Mission Control):
 For programmatic parallel execution:
 
 ```bash
-# Single agent
-oh-my-ag agent:spawn backend "Implement auth API" session-01 ./backend
+# Inline prompt (workspace auto-detected)
+oh-my-ag agent:spawn backend "Implement auth API" session-01
 
-# Parallel agents via orchestrator skill
-oh-my-ag agent:spawn backend "Implement auth API" session-01 ./backend &
-oh-my-ag agent:spawn frontend "Create login form" session-01 ./frontend &
+# Prompt from file
+oh-my-ag agent:spawn backend .agent/tasks/backend-auth.json session-01
+
+# With explicit workspace
+oh-my-ag agent:spawn backend "Implement auth API" session-01 -w ./apps/api
+
+# Parallel agents
+oh-my-ag agent:spawn backend "Implement auth API" session-01 &
+oh-my-ag agent:spawn frontend "Create login form" session-01 &
 wait
 ```
 

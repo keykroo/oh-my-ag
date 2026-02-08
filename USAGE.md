@@ -152,11 +152,11 @@ Agent outputs stored at `.gemini/antigravity/brain/`. Contains plans, code, repo
 Structured runtime state at `.serena/memories/`. The orchestrator writes session info, task boards, per-agent progress, and results. Dashboards watch these files for monitoring.
 
 ### Workspaces
-Agents can work in separate directories to avoid conflicts:
+Agents can work in separate directories to avoid conflicts. Workspace is auto-detected from common monorepo conventions:
 ```
-./backend    → Backend Agent workspace
-./frontend   → Frontend Agent workspace
-./mobile     → Mobile Agent workspace
+./apps/api   or ./backend   → Backend Agent workspace
+./apps/web   or ./frontend  → Frontend Agent workspace
+./apps/mobile or ./mobile   → Mobile Agent workspace
 ```
 
 ---

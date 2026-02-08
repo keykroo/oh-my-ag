@@ -98,16 +98,24 @@ program
   });
 
 program
-  .command("agent:spawn <agent-id> <prompt-file> <session-id> <workspace>")
-  .description("Spawn a subagent (wraps gemini with logging and PID tracking)")
+  .command("agent:spawn <agent-id> <prompt> <session-id>")
+  .description("Spawn a subagent (prompt can be inline text or a file path)")
   .option(
     "-v, --vendor <vendor>",
     "CLI vendor override (gemini/claude/codex/qwen)",
   )
-  .action((agentId, promptFile, sessionId, workspace, options) => {
-    spawnAgent(agentId, promptFile, sessionId, workspace, options.vendor).catch(
-      console.error,
-    );
+  .option(
+    "-w, --workspace <path>",
+    "Working directory for the agent (auto-detected if omitted)",
+  )
+  .action((agentId, prompt, sessionId, options) => {
+    spawnAgent(
+      agentId,
+      prompt,
+      sessionId,
+      options.workspace || ".",
+      options.vendor,
+    ).catch(console.error);
   });
 
 program
