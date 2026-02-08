@@ -1,7 +1,7 @@
 {
   "name": "oh-my-ag",
   "version": "1.14.1",
-  "releaseDate": "2026-02-08T13:43:20.417Z",
+  "releaseDate": "2026-02-08T23:41:50.506Z",
   "repository": "https://github.com/first-fluke/oh-my-ag",
   "files": [
     {
@@ -261,8 +261,8 @@
     },
     {
       "path": ".agent/skills/orchestrator/config/cli-config.yaml",
-      "sha256": "179632de0439c552e146178a7d05bf7ca267492167ae413fe3f378ebe044c5b1",
-      "size": 2132
+      "sha256": "abab1083482487035d8ed0b52264685415f59a3596e0b98ec2cd28aea3573cc9",
+      "size": 1931
     },
     {
       "path": ".agent/skills/orchestrator/resources/memory-schema.md",
@@ -276,8 +276,8 @@
     },
     {
       "path": ".agent/skills/orchestrator/scripts/parallel-run.sh",
-      "sha256": "4b112010b73163dedb254d8a82c2517c0ae2a8c87116814fbb82923c46121331",
-      "size": 9460
+      "sha256": "f3def59c8e71f2b90602bf7d7dc527af6f793d5807d3d7784e9f5bffb7c0db65",
+      "size": 9463
     },
     {
       "path": ".agent/skills/orchestrator/templates/backend-task.md",
@@ -366,18 +366,18 @@
     },
     {
       "path": ".agent/skills/workflow-guide/SKILL.md",
-      "sha256": "86590c3915d8c265ac48bf9184fa465ec3002aa8848b0fd2547e27fd1432767b",
-      "size": 2079
+      "sha256": "aabc7660f7e12185d1b930303d800563a2e313ce7abb0c0d26f8faa3209f3457",
+      "size": 2085
     },
     {
       "path": ".agent/skills/workflow-guide/resources/examples.md",
-      "sha256": "b7f74aab4c5efcaa8ce3a6cb962e99a864c4576a5e8ef3f28d8a5b5f9d51434d",
-      "size": 2156
+      "sha256": "e72d8be4021090cb80790430e4bd4f4f6feac70269911da81155bb05a8ef2fc3",
+      "size": 2171
     },
     {
       "path": ".agent/workflows/coordinate.md",
-      "sha256": "4ee1607690e5cc26aa27d841da1e25d3bde906271e87c3ad24b8008036917125",
-      "size": 3880
+      "sha256": "b357b5de26f3ad16d57fc80b14871b1fdcec7c7d464860741efb13b0a3c8a3cf",
+      "size": 3886
     },
     {
       "path": ".agent/workflows/debug.md",
@@ -386,8 +386,8 @@
     },
     {
       "path": ".agent/workflows/orchestrate.md",
-      "sha256": "06541e5a45bdb534396223a27285b277c5c48c0bc993551a3f7dabf12001dc26",
-      "size": 3759
+      "sha256": "1be1f66f1b744b4e9885d7c764741951b74ee750518faab43c651173f0008470",
+      "size": 3762
     },
     {
       "path": ".agent/workflows/plan.md",
