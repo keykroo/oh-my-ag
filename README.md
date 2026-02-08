@@ -569,6 +569,9 @@ This project is maintained thanks to our generous sponsors.
 <a href="https://github.com/sponsors/first-fluke">
   <img src="https://img.shields.io/badge/Sponsor-♥-ea4aaa?style=for-the-badge" alt="Sponsor" />
 </a>
+<a href="https://buymeacoffee.com/firstfluke">
+  <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-☕-FFDD00?style=for-the-badge" alt="Buy Me a Coffee" />
+</a>
 
 ### 🚀 Champion
 

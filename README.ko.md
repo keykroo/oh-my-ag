@@ -503,6 +503,9 @@ bunx oh-my-ag usage          # 모델 사용량 쿼터 조회
 <a href="https://github.com/sponsors/first-fluke">
   <img src="https://img.shields.io/badge/후원하기-♥-ea4aaa?style=for-the-badge" alt="Sponsor" />
 </a>
+<a href="https://buymeacoffee.com/firstfluke">
+  <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-☕-FFDD00?style=for-the-badge" alt="Buy Me a Coffee" />
+</a>
 
 ### 🚀 Champion
 
