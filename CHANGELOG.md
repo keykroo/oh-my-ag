@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.14.1](https://github.com/first-fluke/oh-my-ag/compare/oh-my-ag-v1.14.0...oh-my-ag-v1.14.1) (2026-02-08)
+
+
+### Bug Fixes
+
+* resolve vendor selection and update CLI configs ([bbfdb39](https://github.com/first-fluke/oh-my-ag/commit/bbfdb39464921930b6354105af01d22f99078519))
+
+
+### Miscellaneous
+
+* add __pycache__ to gitignore and remove tracked .pyc ([24915a6](https://github.com/first-fluke/oh-my-ag/commit/24915a6b42fa99996d4e34f2a0db4905ede7ebee))
+* update prompt-manifest.json for 1.14.0 ([aa7b105](https://github.com/first-fluke/oh-my-ag/commit/aa7b105e188956594c00b7c0641e2b12e78c2b54))
+
 ## [1.14.0](https://github.com/first-fluke/oh-my-ag/compare/oh-my-ag-v1.13.2...oh-my-ag-v1.14.0) (2026-02-08)
 
 
