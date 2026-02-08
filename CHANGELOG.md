@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.12.0](https://github.com/first-fluke/oh-my-ag/compare/oh-my-ag-v1.11.0...oh-my-ag-v1.12.0) (2026-02-08)
+
+
+### Features
+
+* **agent:** add monorepo config-based workspace detection ([c655f50](https://github.com/first-fluke/oh-my-ag/commit/c655f509257f09d19f89c1875055daf169f57a89))
+
+
+### Documentation
+
+* move USAGE docs to docs/ and update outdated spawn references ([970a187](https://github.com/first-fluke/oh-my-ag/commit/970a18722f58a32531107b77cf0124459dc447d8))
+
+
+### Miscellaneous
+
+* update prompt-manifest.json for 1.11.0 ([4f12317](https://github.com/first-fluke/oh-my-ag/commit/4f12317e5a11575aa87b25774794282af71f04e6))
+
 ## [1.11.0](https://github.com/first-fluke/oh-my-ag/compare/oh-my-ag-v1.10.0...oh-my-ag-v1.11.0) (2026-02-08)
 
 
