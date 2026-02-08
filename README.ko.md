@@ -25,10 +25,11 @@ Google Antigravity를 위한 궁극의 멀티 에이전트 프레임워크.
 - [빠른 시작](#빠른-시작)
 - [동작 원리](#동작-원리)
 - [실시간 대시보드](#실시간-대시보드)
-- [프로젝트 구조](#프로젝트-구조)
 - [스킬 아키텍처](#스킬-아키텍처)
 - [CLI 명령어](#cli-명령어)
 - [문제 해결](#문제-해결)
+- [후원하기](#후원하기)
+- [중앙 레지스트리](#중앙-레지스트리-멀티-레포-설정용)
 - [후원하기](#후원하기)
 - [라이선스](#라이선스)
 
@@ -366,62 +367,6 @@ bunx oh-my-ag dashboard:web
 - 세션 상태, 에이전트 테이블, 활동 로그
 - chokidar 기반 이벤트 드리븐 파일 감시 (크로스 플랫폼)
 
-## 프로젝트 구조
-
-```
-.
-├── .agent/
-│   ├── config/
-│   │   └── user-preferences.yaml   # 언어, 타임존, CLI 매핑
-│   ├── workflows/
-│   │   ├── coordinate.md           # /coordinate (UI 기반 멀티 에이전트 조율)
-│   │   ├── orchestrate.md          # /orchestrate (CLI 자동 병렬 실행)
-│   │   ├── plan.md                 # /plan (PM 태스크 분해)
-│   │   ├── review.md               # /review (전체 QA 파이프라인)
-│   │   ├── debug.md                # /debug (구조화된 버그 수정)
-│   │   ├── setup.md                # /setup (CLI & MCP 설정)
-│   │   └── tools.md                # /tools (MCP 도구 관리)
-│   └── skills/
-│       ├── _shared/                    # 공통 리소스 (스킬 아님)
-│       │   ├── serena-memory-protocol.md
-│       │   ├── common-checklist.md
-│       │   ├── skill-routing.md
-│       │   ├── context-loading.md
-│       │   ├── context-budget.md
-│       │   ├── reasoning-templates.md
-│       │   ├── clarification-protocol.md
-│       │   ├── difficulty-guide.md
-│       │   ├── lessons-learned.md
-│       │   ├── verify.sh
-│       │   └── api-contracts/
-│       ├── workflow-guide/             # 멀티 에이전트 조율
-│       ├── pm-agent/                   # 프로덕트 매니저
-│       ├── frontend-agent/             # React/Next.js
-│       ├── backend-agent/              # FastAPI
-│       ├── mobile-agent/               # Flutter
-│       ├── qa-agent/                   # 보안 & QA
-│       ├── debug-agent/                # 버그 수정
-│       ├── orchestrator/               # CLI 기반 서브에이전트 실행
-│       └── commit/                     # Conventional Commits 스킬
-│       # 각 스킬 구조:
-│       #   SKILL.md              (~40줄, 토큰 최적화)
-│       #   resources/
-│       #     ├── execution-protocol.md  (Chain-of-thought 단계)
-│       #     ├── examples.md            (Few-shot 입출력 예시)
-│       #     ├── checklist.md           (셀프 검증)
-│       #     ├── error-playbook.md      (장애 복구)
-│       #     ├── tech-stack.md          (기술 스택 상세)
-│       #     └── snippets.md           (코드 스니펫)
-├── .serena/
-│   └── memories/                   # 런타임 상태 (gitignore 처리됨)
-├── package.json
-├── docs/
-│   ├── USAGE.md                    # 상세 사용 가이드 (영문)
-│   └── USAGE.ko.md                 # 상세 사용 가이드 (한글)
-├── README.md                       # 영문 가이드
-└── README.ko.md                    # 한글 가이드 (이 파일)
-```
-
 ## 스킬 아키텍처
 
 각 스킬은 **토큰 최적화된 2계층 설계**를 사용합니다:
@@ -496,6 +441,80 @@ bunx oh-my-ag usage          # 모델 사용량 쿼터 조회
 2. 다른 에이전트의 산출물을 참조하여 재생성
 3. QA Agent로 최종 일관성 검사
 
+## 중앙 레지스트리 (멀티-레포 설정용)
+
+이 저장소는 에이전트 스킬의 **중앙 레지스트리**로 사용할 수 있으며, 여러 컨슈머 프로젝트가 버전 관리된 업데이트를 일관되게 동기화할 수 있습니다.
+
+### 아키텍처
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  중앙 레지스트리 (이 저장소)                            │
+│  • release-please 기반 자동 버저닝                      │
+│  • CHANGELOG.md 자동 생성                               │
+│  • prompt-manifest.json (버전/파일/체크섬)               │
+│  • agent-skills.tar.gz 릴리스 아티팩트                  │
+└─────────────────────────────────────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────────┐
+│  컨슈머 저장소                                           │
+│  • .agent-registry.yaml 기반 버전 고정                  │
+│  • 새 버전 감지 시 PR 생성 (자동 머지 없음)             │
+│  • 재사용 가능한 동기화 액션                             │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 레지스트리 유지보수자용
+
+[release-please](https://github.com/googleapis/release-please)로 릴리스가 자동화됩니다:
+
+1. **Conventional Commits**: `feat:`, `fix:`, `chore:` 등 접두사 사용
+2. **Release PR**: `main` 브랜치에 푸시하면 자동 생성/업데이트
+3. **Release**: Release PR을 머지하면 GitHub Release 생성:
+   - `CHANGELOG.md` (자동 생성)
+   - `prompt-manifest.json` (파일 목록 + SHA256 체크섬)
+   - `agent-skills.tar.gz` (`.agent/` 디렉토리 압축본)
+
+### 컨슈머 프로젝트용
+
+1. `docs/consumer-templates/`의 템플릿을 프로젝트로 복사:
+
+   ```bash
+   # 설정 파일
+   cp docs/consumer-templates/.agent-registry.yaml /path/to/your-project/
+
+   # GitHub 워크플로우
+   cp docs/consumer-templates/check-registry-updates.yml /path/to/your-project/.github/workflows/
+   cp docs/consumer-templates/sync-agent-registry.yml /path/to/your-project/.github/workflows/
+   ```
+
+2. `.agent-registry.yaml`에서 원하는 버전을 고정:
+
+   ```yaml
+   registry:
+     repo: first-fluke/oh-my-ag
+     version: "1.2.0"  # 특정 버전 고정
+   ```
+
+3. 워크플로우 구성:
+   - `check-registry-updates.yml`: 주간 버전 확인 후 PR 생성
+   - `sync-agent-registry.yml`: 버전 변경 시 `.agent/` 동기화
+
+**중요**: 자동 머지는 의도적으로 비활성화되어 있습니다. 모든 버전 업데이트는 수동 검토가 필요합니다.
+
+### 재사용 가능한 액션 사용
+
+컨슈머 프로젝트에서 동기화 액션을 직접 사용할 수 있습니다:
+
+```yaml
+- uses: first-fluke/oh-my-ag/.github/actions/sync-agent-registry@main
+  with:
+    registry-repo: first-fluke/oh-my-ag
+    version: '1.2.0'  # 또는 'latest'
+    github-token: ${{ secrets.GITHUB_TOKEN }}
+```
+
 ## 후원하기
 
 이 프로젝트는 후원자분들의 지원으로 유지됩니다.
@@ -539,6 +558,8 @@ MIT
 | [README.ko.md](./README.ko.md) | 사용자 | 프로젝트 개요 (한글) |
 | [USAGE.md](./docs/USAGE.md) | 사용자 | 스킬 사용 방법 (영문) |
 | [USAGE.ko.md](./docs/USAGE.ko.md) | 사용자 | 스킬 사용 방법 (한글) |
+| [project-structure.md](./docs/project-structure.md) | 사용자 | 전체 프로젝트 디렉토리 구조 (영문) |
+| [project-structure.ko.md](./docs/project-structure.ko.md) | 사용자 | 전체 프로젝트 디렉토리 구조 (한글) |
 | [AGENT_GUIDE.md](./AGENT_GUIDE.md) | 개발자 | **기존 프로젝트에 통합하는 방법** |
 
 ---
