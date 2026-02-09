@@ -16,7 +16,6 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   type DocGroupId,
@@ -32,8 +31,6 @@ interface DocsShellProps {
   lang: Lang;
   currentGroup: DocGroupId;
   currentSlug: string;
-  title: string;
-  description: string;
   markdown: string;
   navigation: NavGroup[];
   headings: HeadingItem[];
@@ -189,8 +186,6 @@ export function DocsShell({
   lang,
   currentGroup,
   currentSlug,
-  title,
-  description,
   markdown,
   navigation,
   headings,
@@ -229,18 +224,6 @@ export function DocsShell({
         </aside>
 
         <main className="min-w-0">
-          <section className="mb-5 rounded-2xl border border-white/10 bg-white/[0.03] p-6 lg:p-8">
-            <div className="mb-4 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#e6b6b3]/85">
-              <span>Official Docs</span>
-              <Separator orientation="vertical" className="h-3 bg-white/20" />
-              <span>{lang.toUpperCase()}</span>
-            </div>
-            <h1 className="mb-2 text-3xl font-semibold tracking-tight text-zinc-50">
-              {title}
-            </h1>
-            <p className="text-zinc-300">{description}</p>
-          </section>
-
           <section className="rounded-2xl border border-white/10 bg-black/25 p-6 lg:p-8">
             <DocsArticle markdown={markdown} />
           </section>

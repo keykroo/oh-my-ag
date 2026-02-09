@@ -81,8 +81,6 @@ export default async function LocalizedDocsPage({ params }: DocPageProps) {
       lang={lang}
       currentGroup={page.group}
       currentSlug={page.slug}
-      title={page.title}
-      description={page.description}
       markdown={page.markdown}
       navigation={navigation}
       headings={page.headings}
