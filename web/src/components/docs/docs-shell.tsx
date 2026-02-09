@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Github, HeartHandshake, Menu } from "lucide-react";
+import { Github, HeartHandshake, Menu } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { DocsArticle } from "@/components/docs/docs-article";
@@ -89,8 +90,15 @@ function SidebarNav({
 function Brand() {
   return (
     <Link href="/" className="flex items-center gap-3">
-      <span className="flex size-9 items-center justify-center rounded-lg bg-[#B23A34] text-zinc-50 shadow-[0_0_28px_rgba(178,58,52,0.45)]">
-        <BookOpen className="size-5" />
+      <span className="overflow-hidden rounded-lg shadow-[0_0_28px_rgba(178,58,52,0.45)]">
+        <Image
+          src="/icons/android/android-launchericon-192-192.png"
+          alt="oh-my-ag icon"
+          width={36}
+          height={36}
+          className="size-9"
+          priority
+        />
       </span>
       <span className="text-base font-semibold tracking-tight text-zinc-50">
         oh-my-ag docs
