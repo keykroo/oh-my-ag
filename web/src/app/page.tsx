@@ -15,7 +15,7 @@ export default function Home() {
       </div>
 
       <section className="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center justify-center px-4 py-12 text-center">
-        <div className="mb-5 flex size-16 items-center justify-center rounded-2xl bg-[#B23A34] text-zinc-50 shadow-[0_0_34px_rgba(178,58,52,0.5)]">
+        <div className="mb-5 flex size-16 items-center justify-center rounded-2xl bg-zinc-50 ring-1 ring-white/70 shadow-[0_0_34px_rgba(178,58,52,0.45)]">
           <Image
             src={`${basePath}/icons/android/android-launchericon-192-192.png`}
             alt="oh-my-ag icon"
