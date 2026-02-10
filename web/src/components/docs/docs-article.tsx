@@ -111,6 +111,43 @@ export function DocsArticle({ markdown }: DocsArticleProps) {
               {children}
             </blockquote>
           ),
+          table: ({ children, ...props }) => (
+            <table
+              className="w-full border-collapse text-left text-sm"
+              {...props}
+            >
+              {children}
+            </table>
+          ),
+          thead: ({ children, ...props }) => (
+            <thead
+              className="border-b border-white/20 bg-white/5"
+              {...props}
+            >
+              {children}
+            </thead>
+          ),
+          th: ({ children, ...props }) => (
+            <th
+              className="px-4 py-3 font-semibold text-zinc-200"
+              {...props}
+            >
+              {children}
+            </th>
+          ),
+          td: ({ children, ...props }) => (
+            <td
+              className="border-b border-white/10 px-4 py-3 text-zinc-300"
+              {...props}
+            >
+              {children}
+            </td>
+          ),
+          tr: ({ children, ...props }) => (
+            <tr className="hover:bg-white/5" {...props}>
+              {children}
+            </tr>
+          ),
         }}
       >
         {markdown}
