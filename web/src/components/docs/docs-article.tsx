@@ -78,14 +78,19 @@ export function DocsArticle({ markdown }: DocsArticleProps) {
             </p>
           ),
           ul: ({ children, ...props }) => (
-            <ul className="space-y-1 text-zinc-300" {...props}>
+            <ul className="list-disc space-y-1 pl-5 text-zinc-300" {...props}>
               {children}
             </ul>
           ),
           ol: ({ children, ...props }) => (
-            <ol className="space-y-1 text-zinc-300" {...props}>
+            <ol className="list-decimal space-y-1 pl-5 text-zinc-300" {...props}>
               {children}
             </ol>
+          ),
+          li: ({ children, ...props }) => (
+            <li className="leading-7" {...props}>
+              {children}
+            </li>
           ),
           a: ({ href, children, ...props }) => (
             <a
