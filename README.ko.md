@@ -144,40 +144,9 @@ bunx oh-my-ag
 
 > **팁:** 설치 후 `bunx oh-my-ag doctor`를 실행하여 모든 설정(전역 워크플로우 포함)이 올바른지 확인하세요.
 
-**수동 방법 (파일 복사):**
 
-이미 oh-my-ag 저장소를 클론했다면 파일 복사로도 가능합니다:
 
-```bash
-# 1. 스킬 복사
-cp -r oh-my-ag/.agent/skills /path/to/your-project/.agent/
-
-# 2. 워크플로우 복사
-cp -r oh-my-ag/.agent/workflows /path/to/your-project/.agent/
-
-# 3. 설정 복사 (선택)
-cp -r oh-my-ag/.agent/config /path/to/your-project/.agent/
-```
-
-본인 프로젝트에서:
-
-```bash
-cd /path/to/your-project
-antigravity open .
-```
-
-모든 스킬이 이제 본인 프로젝트에서 사용 가능합니다!
-
-### 2. 초기 설정 (선택)
-
-```
-/setup
-→ CLI 설치 확인, MCP 연결 상태, 언어 및 CLI 매핑 설정
-```
-
-이 명령은 `.agent/config/user-preferences.yaml`을 생성합니다.
-
-### 3. 채팅으로 사용
+### 2. 채팅으로 사용
 
 **간단한 작업** (단일 에이전트 자동 활성화):
 

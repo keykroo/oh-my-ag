@@ -146,31 +146,9 @@ bunx oh-my-ag
 
 > **Tip:** Run `bunx oh-my-ag doctor` after installation to verify everything is set up correctly (including global workflows).
 
-**Manual Method:**
 
-If you have cloned this repo, you can simply copy the `.agent` directory:
 
-```bash
-# 1. Copy skills
-cp -r oh-my-ag/.agent/skills /path/to/your-project/.agent/
-
-# 2. Copy workflows
-cp -r oh-my-ag/.agent/workflows /path/to/your-project/.agent/
-
-# 3. Copy config (optional)
-cp -r oh-my-ag/.agent/config /path/to/your-project/.agent/
-```
-
-### 2. Initial Setup (Optional)
-
-```
-/setup
-→ Check CLI installations, MCP connections, configure language & CLI mapping
-```
-
-This creates `.agent/config/user-preferences.yaml` for your project.
-
-### 3. Chat
+### 2. Chat
 
 **Simple task** (single agent auto-activates):
 
