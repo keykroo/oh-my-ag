@@ -1,0 +1,12 @@
+{
+    "name": "framer-motion-capability",
+    "version": "1.0.0",
+    "description": "Enables fluid UI transitions and motion components within the Antigravity workspace.",
+    "capabilities": [
+        "ui-animation",
+        "layout-transitions"
+    ],
+    "dependencies": {
+        "framer-motion": "^10.0.0"
+    }
+}
